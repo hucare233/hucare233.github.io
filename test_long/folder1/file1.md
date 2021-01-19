@@ -1,3 +1,5 @@
-# file1
+# A
+
+![PID](../../md_pictures/z.jpg)
 
 source: `{{ page.path }}`
