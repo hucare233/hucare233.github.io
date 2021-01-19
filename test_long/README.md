@@ -2,7 +2,7 @@
 sort: 2
 ---
 
-# This is an incredibly long caption for a long menu
+# 前面可是高能啊
 
 ```
 {% raw %}{% include list.liquid all=true %}{% endraw %}

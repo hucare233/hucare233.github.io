@@ -1,3 +1,3 @@
-# I'm folder1
+# 正片1
 
-source: `{{ page.path }}`
+![bejite](../../md_pictures/z.jpg)

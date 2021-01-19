@@ -1,3 +1,3 @@
-# file3
+# A
 
-source: `{{ page.path }}`
+![bejite](../../md_pictures/w.jpg)
