@@ -57,13 +57,15 @@ ERPM是电角度转速，=RPM*POLES极对数。还有一个是Minimum ERPM，小
 ```
 
 ---
-|变量|初值|更改后|所在文件|
-|:-:|:-:|:-:|:-:|
-|MCCONF_S_PID_MIN_RPM|900.f|0.0f|mcconf_defult.h|
-|APPCONF_CONTROLLER_ID|0|1|appconf_defult.h|
-|APPCONF_SEND_CAN_STAUS|false|true|appconf_defult.h|
-|APPCONF_SEND_CAN_STAUS_RATE_HZ|100|2000|appconf_defult.h|
-|APPCONF_CAN_BAUD_RATE|CAN_BAUD_500K|CAN_BAUD_1M|appconf_defult.h|
+
+| 变量          | 初值        | 更改后    |   所在文件 |
+| ------------- | -------------------- | ----------------- |----------------- |
+| `MCCONF_S_PID_MIN_RPM`       | 900.f            |        0.0f      |    mcconf_defult.h |
+| `APPCONF_CONTROLLER_ID` | 0     |        1      |     appconf_defult.h |
+| `APPCONF_SEND_CAN_STAUS`         | false |          true     |    appconf_defult.h |
+| `APPCONF_SEND_CAN_STAUS_RATE_HZ`     | 100            |        2000      |     appconf_defult.h |
+| `APPCONF_CAN_BAUD_RATE`        | CAN_BAUD_500K                 |          CAN_BAUD_1M      |   appconf_defult.h |
+
 ---
 
 # Header 4-`EPOS注意事项`
