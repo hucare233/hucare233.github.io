@@ -1,2 +1,3 @@
-# 无内鬼
+# I'm folder1
 
+source: `{{ page.path }}`
