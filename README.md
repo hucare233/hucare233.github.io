@@ -1,6 +1,6 @@
 # 机构组官网
 
-## 视觉组官网
+## 激情♂链接
 
 [![way: vision](https://img.shields.io/badge/%E8%A7%86%E8%A7%89-vision-green)](https://whu-robocon-vision.github.io/)
 
