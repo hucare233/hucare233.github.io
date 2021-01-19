@@ -1,12 +1,3 @@
-<!--
- * @Descripttion: 
- * @version: 第一版
- * @Author: 叮咚蛋
- * @Date: 2021-01-19 10:23:59
- * @LastEditors: 叮咚蛋
- * @LastEditTime: 2021-01-19 14:29:54
- * @FilePath: \rundocs-jekyll-rtd-theme-e897694\README.md
--->
 # 机构组官网
 
 ## 视觉组官网
@@ -15,20 +6,13 @@
 
 ---
 
-## What it does?
-
-This theme is inspired by [sphinx-rtd-theme](https://github.com/readthedocs/sphinx_rtd_theme) and refactored with:
-
-- [@primer/css](https://github.com/primer/css)
-- [github-pages](https://github.com/github/pages-gem) ([dependency versions](https://pages.github.com/versions/))
-
-## Quick start
+## ABABA
 
 ```yml
-remote_theme: rundocs/jekyll-rtd-theme
+你可以在这里搞基（×），搞机（√）
 ```
 
-You can [generate](https://github.com/rundocs/starter-slim/generate) with the same files and folders from [rundocs/starter-slim](https://github.com/rundocs/starter-slim/)
+## 二胡钵钵鸡
 
 ---
 
@@ -60,12 +44,20 @@ You can [generate](https://github.com/rundocs/starter-slim/generate) with the sa
 | `《学妹》` | 202x              | 有生之年 |
 
 ```yml
-
+Click Here
 ```
+
+---
+
+[![Agnel: Motor Driver](https://img.shields.io/badge/Agnel-motor%20driver-blue)](http://www.github.com/Agnel-Wang/MotorProj)
+
+[![hucare: Motor Driver](https://img.shields.io/badge/%E5%8F%AE%E5%92%9A%E8%9B%8B-MotorPro-blue)](http://www.github.com/hucare233)
+
+---
 
 ## 结语
 
-千万一定记得写注释！！
+代码千万一定记得写注释！！
 
 ---
 
