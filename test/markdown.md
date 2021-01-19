@@ -88,7 +88,3 @@ ERPM是电角度转速，=RPM*POLES极对数。还有一个是Minimum ERPM，小
 Large images should always scale down and fit in the content container.
 
 ![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-```
-This is the final element on the page and there should be no margin below this.
-```
