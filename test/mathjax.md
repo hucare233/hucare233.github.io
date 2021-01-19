@@ -1,8 +1,8 @@
 ---
-sort: 6
+sort: 5
 ---
 
-# Mathjax Test
+# Mathjax测试
 
 $$
 \begin{aligned}
@@ -22,5 +22,6 @@ $$
 $$
 
 ```note
-For documentation, see: https://kramdown.gettalong.org/syntax.html#math-blocks
+Creat Time ： 2021.1.19
+Author: 叮咚蛋
 ```
