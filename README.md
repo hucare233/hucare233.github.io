@@ -1,3 +1,12 @@
+<!--
+ * @Descripttion: 
+ * @version: 第一版
+ * @Author: 叮咚蛋
+ * @Date: 2021-01-19 10:23:59
+ * @LastEditors: 叮咚蛋
+ * @LastEditTime: 2021-01-19 16:59:48
+ * @FilePath: \rundocs-jekyll-rtd-theme-e897694\README.md
+-->
 # 机构组官网
 
 ![logo](\md_pictures\logo.png)
@@ -46,18 +55,6 @@
 | `燕天琦`   | 2019               | tr机构    |
 | `胡智杰` | 2019              | dr底盘人 |
 | `《学妹》` | 202x              | 有生之年 |
-
-```yml
-Click Here
-```
-
----
-
-[![Agnel: Motor Driver](https://img.shields.io/badge/Agnel-motor%20driver-blue)](http://www.github.com/Agnel-Wang/MotorProj)
-
-[![hucare: Motor Driver](https://img.shields.io/badge/%E5%8F%AE%E5%92%9A%E8%9B%8B-MotorPro-blue)](http://www.github.com/hucare233)
-
----
 
 ## 结语
 
