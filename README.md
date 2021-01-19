@@ -1,15 +1,7 @@
-<!--
- * @Descripttion: 
- * @version: 第一版
- * @Author: 叮咚蛋
- * @Date: 2021-01-19 10:23:59
- * @LastEditors: 叮咚蛋
- * @LastEditTime: 2021-01-19 17:02:52
- * @FilePath: \rundocs-jekyll-rtd-theme-e897694\README.md
--->
 # 机构组官网
 
 ![logo](\md_pictures\logo.png)
+
 ![bejite](\md_pictures\bejite.png)
 
 ## 激情♂链接
