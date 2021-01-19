@@ -1,12 +1,3 @@
-<!--
- * @Descripttion: 
- * @version: 第一版
- * @Author: 叮咚蛋
- * @Date: 2021-01-19 10:24:00
- * @LastEditors: 叮咚蛋
- * @LastEditTime: 2021-01-19 20:39:21
- * @FilePath: \rundocs-jekyll-rtd-theme-e897694\test\utilities.md
--->
 ---
 sort: 7
 ---
