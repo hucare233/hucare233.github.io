@@ -1,0 +1,15 @@
+{
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "xutility": "c",
+        "ios": "c",
+        "string": "c",
+        "xstring": "c"
+    },
+    "markdownlint.config": {
+        "default": true,
+        "MD033": {
+          "allowed_elements": [ "font", "li", "table", "tr", "td", "center" , "br"]
+        }
+      },
+}
