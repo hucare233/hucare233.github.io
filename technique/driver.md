@@ -63,13 +63,7 @@ BLDC Tool VESC 电调调试工具是一款运行在windows下的本杰明电调�
     我们使用的是VESC固件库keil移植版（淘宝赠送）。根据我们的需求对固件库的一些参数进行了修改：  
     ①占空比反馈改为了位置反馈：--反馈数据为 绝对角度*10，变量类型u16  
     ②变量修改
-|变量|初值|更改后|所在文件|
-|:-:|:-:|:-:|:-:|
-|MCCONF_S_PID_MIN_RPM|900.0f|0.0f|mcconf_default.h|
-|APPCONF_CONTROLLER_ID|0|1|appconf_default.h|
-|APPCONF_SEND_CAN_STAUS|faule|true|appconf_default.h|
-|APPCONF_SEND_CAN_STATUS_RATE_HZ|100|2000|appconf_default.h|
-|APPCONF_CAN_BAUD_RATE|100|2000|appconf_default.h|
+![VESC_Changes](../md_pictures/VESC_Changes.png)
 
 #### 2.代码分析
 
