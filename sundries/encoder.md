@@ -39,7 +39,7 @@ sort: 1
 通过计算两次定时器频率之间的编码器脉冲数误差，并在时间尺度上累计，便可得到总编码器脉冲数，并换算到电机轴后总圈数。  
 $$M_1 =\int^{T}_{0}{\Delta M_1dt}$$  
 唯一需要注意的只是编码器数值溢出如何处理。  
-$$if\quad|\Delta M_1|>\frac{P}{2}\qquad\qquad\Delta M_1-=sgn(\Delta M_1)*P$$
+$$if\quad|\Delta M_1|>\frac{P}{2}\qquad\qquad\Delta M_1-=sgn(\Delta M_1)*P$$  
 由此可知电机最大速度
 $$V_{max}\leq\frac{60f}{2}$$
 
@@ -61,14 +61,15 @@ $$|\frac{\Delta N}{N}|=|\frac{\Delta M_1}{M_1}|$$
 ![encoder_t](../sundries/pic/encoder_t.png)
 
 通过测量编码器两个相邻脉冲的时间间隔来计算转速，适用于速度比较低的场合，当转速较高时其准确性较差。  
-转速$N=\frac{60f}{PM_2}$，其相对误差为$|\frac{\Delta N}{N}|=|\frac{\Delta M_2}{M_2 +\Delta M_2}|\approx \frac{\Delta M_2}{M_2}$  
+转速$$N=\frac{60f}{PM_2}$$，其相对误差为$$|\frac{\Delta N}{N}|=|\frac{\Delta M_2}{M_2 +\Delta M_2}|\approx \frac{\Delta M_2}{M_2}$$  
 
 #### 3.M/T法
 
 ![encoder_t](../sundries/pic/encoder_mt.png)
 
 “M/T法”是前两中方法的结合，同时测量一定个数编码器脉冲和产生这些脉冲所花的时间，在整个速度范围内都有较好的准确性。  
-但对于低速情况下，该方法需要较长的检测时间才能保证结果的准确性。
+但对于低速情况下，该方法需要较长的检测时间才能保证结果的准确性。  
+转速$$N=\frac{60f}{P}*\frac{M_1}{M_2}$$，式中M<sub>1</sub>已确定，故其相对误差为$$|\frac{\Delta N}{N}|=|\frac{\Delta M_2}{M_2 +\Delta M_2}|\approx \frac{\Delta M_2}{M_2}$$  
 通常时钟频率f远大于编码器的输出脉冲频率，因此上面各式中M<sub>2</sub>远大于M<sub>1</sub>。
 
 ### Ⅲ测加速度
