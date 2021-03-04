@@ -60,10 +60,16 @@ BLDC Tool VESC 电调调试工具是一款运行在windows下的本杰明电调�
 
 #### 1.所做修改
 
-我们使用的是VESC固件库keil移植版（淘宝赠送）。根据我们的需求对固件库的一些参数进行了修改：  
-①占空比反馈改为了位置反馈：--反馈数据为 绝对角度*10，变量类型u16  
-②变量修改  
-![VESC_Changes](../md_pictures/VESC_Changes.png)
+    我们使用的是VESC固件库keil移植版（淘宝赠送）。根据我们的需求对固件库的一些参数进行了修改：  
+    ①占空比反馈改为了位置反馈：--反馈数据为 绝对角度*10，变量类型u16  
+    ②变量修改
+|变量|初值|更改后|所在文件|
+|:-:|:-:|:-:|:-:|
+|MCCONF_S_PID_MIN_RPM|900.0f|0.0f|mcconf_default.h|
+|APPCONF_CONTROLLER_ID|0|1|appconf_default.h|
+|APPCONF_SEND_CAN_STAUS|faule|true|appconf_default.h|
+|APPCONF_SEND_CAN_STATUS_RATE_HZ|100|2000|appconf_default.h|
+|APPCONF_CAN_BAUD_RATE|100|2000|appconf_default.h|
 
 #### 2.代码分析
 
@@ -78,8 +84,8 @@ BLDC Tool VESC 电调调试工具是一款运行在windows下的本杰明电调�
     `CAN_PACKET_SET_RPM: mc_interface_set_pid_speed(buffer_get_float32(rxmsg.data8, 1e0f, &ind));`  
     `CAN_PACKET_SET_POS: mc_interface_set_pid_pos(buffer_get_float32(rxmsg.data8, 1e6f, &ind));`
 
-    发送至VESC的报文通信格式须与该文件内定义的格式一致。  
-    ![VESC_CAN_STATUS](../md_pictures/VESC_CAN_STATUS.jpg)
+    发送至VESC的报文通信格式须与该文件内定义的格式一致。
+![VESC_CAN_STATUS](../md_pictures/VESC_CAN_STATUS.jpg)
     原固件库反馈为rpm &  current & duty;将duty改为pos方便进行位置计算。此处位置为相对角度，仍需累加计算。  
     VESC运行过程中，需持续给其发送报文，否则电调将会断连。
 
@@ -96,16 +102,16 @@ BLDC Tool VESC 电调调试工具是一款运行在windows下的本杰明电调�
     采用PID控制为传统的直接计算法，但其中单独对D进行了简单的低通滤波处理。  
     `UTILS_LP_FAST(value, sample, filter_constant)	(value -= (filter_constant) * (value - (sample)))·`
 
-    ①control_current [ 电流环 ]
+    + control_current [ 电流环 ]
 
         电流环频率：100kHz
         里面是FOC算法，有兴趣可以了解一下。
 
-    ②run_pid_control_speed [ 速度环 ]
+    + run_pid_control_speed [ 速度环 ]
 
         速度环频率：10kHz
 
-    ③run_pid_control_pos [ 位置环 ]
+    + run_pid_control_pos [ 位置环 ]
 
         位置环频率：1kHz
         位置环的输入设置值范围为[0, 360°]
@@ -130,11 +136,11 @@ BLDC Tool VESC 电调调试工具是一款运行在windows下的本杰明电调�
     速度环目前尝试过两种方法，分别为通过电流模式实现的速度环以及直接使用其速度环。  
     通过电流环的方法暂未成功，目前的思想是先将程序通过电流环的效果与其自身速度环进行一致，完整了解其机理再进行改进。
 
-    ①电流模式实现
+    + 电流模式实现
 
     实际操作发现将PID参数与上位机所配置参数进行对应后，PI参数下的电流实际反馈与本杰明电调实际输出相同，但D有些不同。目前怀疑是滤波层次的时间常量不对。我们的定时器频率都是一致的。（还未尝试）
 
-    ②直接速度环
+    + 直接速度环
 
     速度环曲线收敛过慢。目前未清楚原因。  
     同时速度环也较软。
@@ -145,18 +151,18 @@ BLDC Tool VESC 电调调试工具是一款运行在windows下的本杰明电调�
     同理位置环也采用直接位置环、速度环下的位置环以及电流环下的位置环。  
     `我们缺少从数学上分析PID刚性好坏的方法`
 
-    ①电流模式实现
+    + 电流模式实现
 
     速度环下的电流环机理还未明确，故此模式暂且放置。
 
-    ②速度模式实现
+    + 速度模式实现
 
     由于本杰明原本的速度环刚性便无法与其位置环相比，通过此方法实现的位置环刚性太差，予以放弃。
 
-    ③直接位置环
+    + 直接位置环
 
-    本杰明自身位置环效果刚性很好。  
-    通过该方式实现的位置环，为进行速度控制，目前采用的方法是在行程的前一部分走速度环，当电机即将达到设定目标时转为位置模式。
+    本杰明自身位置环效果刚性很好。
+    通过该方式实现的位置环，为进行速度控制，目前采用的方法是在行程的前一部分走速度环，当电机即将达到设定目标时转为位置模式  
 
 ---
 
