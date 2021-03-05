@@ -65,7 +65,7 @@ BLDC Tool VESC 电调调试工具是一款运行在windows下的本杰明电调�
     ①占空比反馈改为了位置反馈：--反馈数据为 绝对角度*10，变量类型u16  
     ②变量修改
 
-![VESC_Changes](../md_pictures/VESC_Changes.png)
+<img src="../md_pictures/VESC_Changes.png" width="50%" height="50%">
 
 #### 2.代码分析
 
@@ -171,11 +171,9 @@ EPOS是MAXON开发的一款驱动器系列，其中主要为EPOS2和EPOS4，二�
 
 MAXON作为一个国际上成熟的机电厂商，其EPOS4驱动器拥有极为完善的技术文档。学习过程主要便是看文档。
 
-<center><img src="pic/docs_struct.png" width="50%" height="50%">
+<center><img src="pic/docs_struct.png" width="50%" height="50%">  
 
 Fig.1 Documentation structure</center>
-
-Fig. EPOS文件结构
 
 #### EPOS4 Command Liabrary ☆☆☆☆☆
 
@@ -190,21 +188,21 @@ EPOS4驱动器内部函数，算法，原理图，有余力者可以学习
 里面包含了EPOS的对象字典以及连接方式，报文发送格式从这篇文档里面查看。  
 常用的已经写在了`epos.c`里面，见`2.2 Device Control`，需要按照如下图所示步骤发送指令电机才可正常启动。
 
-<center><img src="pic/EPOS_Device_Ctrl.png" width="50%" height="50%">
+<center><img src="pic/EPOS_Device_Ctrl.png" width="50%" height="50%">  
 
-Fig.1 Device Control
+Fig.1 Device Control  
 
-<img src="pic/ctrl_val.png" width="25%" height="25%">
+<img src="pic/ctrl_val.png" width="25%" height="25%">  
 
-Fig.1 控制字真值表</center>
+Fig.1 控制字真值表</center>  
 
 #### EPOS4-Communication-Guide-En ★★☆☆☆
 
 主要讲解CAN内PDO，SDO，NMT等
 
-<center><img src="pic/NMT_protocols.jpg" width="70%" height="70%">
+<center><img src="pic/NMT_protocols.jpg" width="70%" height="70%">  
 
-Fig.1 NMT protocols</center>
+Fig.1 NMT protocols</center>  
 
 #### EPOS4-Module-50-15-Hardware-Reference ★☆☆☆☆
 
