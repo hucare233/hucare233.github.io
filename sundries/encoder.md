@@ -39,7 +39,7 @@ sort: 1
 通过计算两次定时器频率之间的编码器脉冲数误差，并在时间尺度上累计，便可得到总编码器脉冲数，并换算到电机轴后总圈数。  
 $$M_1 =\int^{T}_{0}{\Delta M_1dt}$$  
 唯一需要注意的只是编码器数值溢出如何处理。  
-$$if\quad|\Delta M_1|>\frac{P}{2}\qquad\qquad\Delta M_1-=sgn(\Delta M_1)*P$$  
+$$if\quad|\Delta M_1|>\frac{P}{2}\qquad then \qquad\Delta M_1-=sgn(\Delta M_1)*P$$  
 由此可知电机最大速度
 $$V_{max}\leq\frac{60f}{2}$$
 
@@ -74,4 +74,4 @@ $$|\frac{\Delta N}{N}|=|\frac{\Delta M_1}{M_1}|$$
 
 ### Ⅲ测加速度
 
-加速度测量可以直接使用$\frac{\Delta V}{\Delta T}$进行计算，但这样误差较大，可以用多个速度点先进行最小二乘法拟合直线再计算斜率。
+加速度测量可以直接使用$$\frac{\Delta V}{\Delta T}$$进行计算，但这样误差较大，可以用多个速度点先进行最小二乘法拟合直线再计算斜率。

@@ -26,7 +26,8 @@ VESC电调有诸多款，当前队内购买的主要为VESC6。
 
 BLDC Tool VESC 电调调试工具是一款运行在windows下的本杰明电调的调试工具，在对VESC开源电调进行调试时需要使用到这个程序，支持BLDC 和FOC，支持更新固件，需要使用COM串口（安卓线）进行连接后再调试。  
 目前队内常用的上位机版本为vesc_tool_0.95，该版本上位机较老，功能较少，但可满足当前的需求。该版本上位机操作界面如图所示：
-![VESC_main_pic](../md_pictures/VESC_main_pic.png)
+
+<img src="../md_pictures/VESC_main_pic.png" width="65%" height="65%">
 
 >初学者请先看完 *(学习资料\机构\VESC驱动器\VESC工具\0.VESC工具手册_ VESC项目.pdf等6个文件)*
 
@@ -48,9 +49,9 @@ BLDC Tool VESC 电调调试工具是一款运行在windows下的本杰明电调�
 3. App Settings 上位机设置界面
 
     该模块只需关注**General**界面内配置，除ID外，其他基本无需改动。  
-![VESC_APPC](../md_pictures/VESC_APPC.png)
+<img src="../md_pictures/VESC_APPC.png" width="30%" height="50%">
 
-4. Data Analysis 数据分析界面
+1. Data Analysis 数据分析界面
 
     通常只用**Realtime Data**界面，建议使用上位机时先通过该界面检测编码器是否正常工作。
 
@@ -78,8 +79,8 @@ BLDC Tool VESC 电调调试工具是一款运行在windows下的本杰明电调�
     `CAN_PACKET_SET_RPM: mc_interface_set_pid_speed(buffer_get_float32(rxmsg.data8, 1e0f, &ind));`  
     `CAN_PACKET_SET_POS: mc_interface_set_pid_pos(buffer_get_float32(rxmsg.data8, 1e6f, &ind));`
 
-    发送至VESC的报文通信格式须与该文件内定义的格式一致。
-![VESC_CAN_STATUS](../md_pictures/VESC_CAN_STATUS.jpg)
+    发送至VESC的报文通信格式须与该文件内定义的格式一致。  
+<img src="../md_pictures/VESC_CAN_STATUS.jpg" width="75%" height="75%">  
     原固件库反馈为rpm &  current & duty;将duty改为pos方便进行位置计算。此处位置为相对角度，仍需累加计算。  
     VESC运行过程中，需持续给其发送报文，否则电调将会断连。
 
@@ -161,6 +162,61 @@ BLDC Tool VESC 电调调试工具是一款运行在windows下的本杰明电调�
 ---
 
 ## EPOS
+
+EPOS是MAXON开发的一款驱动器系列，其中主要为EPOS2和EPOS4，二者控制方式没有区别，而EPOS4体积较小，支持功能更加完善。队内拥有的是5个EPOS4。遗憾的是，EPOS4最大持续电流为15A，峰值电流为30A，偏低，使用时电机速度加不上去，不适用与队内这种粗暴使用情况。其可用作机械臂关节电机驱动器使用，位置伺服性能优良。  
+MAXON作为一个国际上成熟的机电厂商，其EPOS4驱动器拥有极为完善的技术文档。学习过程主要便是看文档。
+
+<img src="pic/docs_struct.png" width="50%" height="50%">
+
+EPOS文件结构
+
+### EPOS4 Command Liabrary ☆☆☆☆☆
+
+EPOS4驱动器内部函数格式，作用不大
+
+### EPOS4 Application Notes Collection ★★★★☆
+
+EPOS4驱动器内部函数，算法，原理图，有余力者可以学习
+
+### EPOS4 Firmware Specfication ★★★★★
+
+里面包含了EPOS的对象字典以及连接方式，报文发送格式从这篇文档里面查看。  
+常用的已经写在了`epos.c`里面，见`2.2 Device Control`，需要按照如下图所示步骤发送指令电机才可正常启动。
+
+<img src="pic/EPOS_Device_Ctrl.png" width="50%" height="50%">
+
+控制字真值表如下
+
+<center><img src="pic/ctrl_val.png" width="25%" height="25%"></center>
+
+### EPOS4-Communication-Guide-En ★★☆☆☆
+
+主要讲解CAN内PDO，SDO，NMT等
+
+<img src="pic/NMT_protocols.jpg" width="70%" height="70%">
+
+### EPOS4-Module-50-15-Hardware-Reference ★☆☆☆☆
+
+这里面主要包含驱动器各个硬件接口定义，主要为各种线接头以及DIP switch配置用以CAN Node ID，机构组记住下面两项就好  
+`3.3.6 DIP Switch Configuration(SW1)`  
+`3.5 Status Indicator`
+
+### 上位机
+
+1. View界面打开Navigation示图和Status示图。file里面可以打开以前的.pjm工程文件
+2. Communication里面进行连接，也可选择上面的绿色USB图标进行自动连接，如连接未成功，可尝试转换USB COM口
+3. Wizards->Starup里面设置电机的基本参数（最后面三个基本用不到）
+4. Wizards->Regulation Tuning整定pid。
+5. Tools->Object Dictionary对象字典，可查看各数值变量，工具栏三个蓝哭脸可以调整数据刷新频率
+6. Tools->Data Recoder即数据观察界面  
+
+### 杂谈
+
+值得一提的是，最初调试时出现单个驱动器调试没问题，但四个驱动器同时在总线上工作时会时不时有驱动器报错停止工作。  
+解决办法是在CANopen里面将不需要的过滤节点关闭，仅留一个即可发送接收。  
+[这个软件每次直接关闭都不行，需要我从任务管理器强制退出，*艹*]
+
+去年调试时使用EC-Flat-90电机，这个电机极容易发热。跑底盘时无法跑多久。虽然不带载测的时候扭矩可达6N·M，但通过示波器实际速度曲线严重偏离设定曲线，跟随不太好，再加之当时时间紧迫，也便没有再进行下去。
 
 ---
 
