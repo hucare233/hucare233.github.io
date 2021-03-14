@@ -123,7 +123,7 @@ BLDC Tool VESC 电调调试工具是一款运行在windows下的本杰明电调�
 
     + run_pid_control_speed [ 速度环 ]
 
-        速度环频率：10kHz
+        速度环频率：10kHz  
 
     + run_pid_control_pos [ 位置环 ]
 
