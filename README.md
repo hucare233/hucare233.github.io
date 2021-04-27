@@ -1,9 +1,6 @@
 # 机构组官网
 
 ![logo](\md_pictures\logo.png)
-
-![bejite](\md_pictures\bejite.png)
-
 ## 激情♂链接
 
 [![way: vision](https://img.shields.io/badge/%E8%A7%86%E8%A7%89-vision-green)](https://whu-robocon-vision.github.io/)

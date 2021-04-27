@@ -4,6 +4,9 @@ sort: 3
 
 # 驱动器
 
+电机驱动常用的可非为电子调速器（电调）和驱动器。通常电调功能较为简单，主要应用于航模行业，一般而言体积小，电流大，工作时间短；而驱动器功能更为多样化与复杂化，可应用于各行各业，集成式指令操作，常会与自家的上位机捆绑销售。  
+驱动器调试的参数文件应保存在相应的DATA文件下。
+
 ## DJESC
 
 DJ电调是一款新手友好型电调，与电机配套使用（M2006+C610，M3508+C620，RM2025+？？？）。  
@@ -23,13 +26,27 @@ DJ电调是一款新手友好型电调，与电机配套使用（M2006+C610，M3
 
 ## ELMO
 
+[![ELMO官网](https://img.shields.io/badge/-ELMO官网-red)](http://elmomc.com)  
+此ELMO非彼Elmo  
+<center><img src="./pic/elmo.jpg" width="30%" height="30%"></center>  
+ELMO是瑞士一家公司开发的驱动器，国际军工级产品。队里使用的型号是whistle系列，持续20A峰值40A电流。实验室有Gold系列，但更贵。与其配套的上位机是Composer，最新版本为2.30.0.9（2021/3/18），当然，咱们还是用现在的，稳定。
+
+### 顶板
+
+以前买的Elmo没有买其配套顶板，现在新买的10个有顶板。主要是解决自己做的顶板经常会报错，过速，电流过大等等奇怪的问题。  
+
+
+### 上位机
+
+### 常见问题
+
 ---
 
 ## VESC
 
 [![VESC官网](https://img.shields.io/badge/-VESC官网-red)](http://vesc-project.com)
-[![VESC_GitHub](https://img.shields.io/badge/-VESC_Github-blue)](http://github.com/vedderb) 
-[![VESC论坛](https://img.shields.io/badge/-VESC论坛-green)](http://vesc-project.com) 
+[![VESC_GitHub](https://img.shields.io/badge/-VESC_Github-blue)](http://github.com/vedderb)
+[![VESC论坛](https://img.shields.io/badge/-VESC论坛-green)](http://vesc-project.com)
 
 VESC电调是由Benjamin Vedder研究并开源的一款强大的电机电子调速器。电流最高可达100+A（具体多少忘了），但电流过高会烧驱动器，有过先例！！所以最高一般80A足以，远高于以前的ELMO驱动器。  
 VESC常用于速度控制场合，如航模，滑板车电机控制，电调带有三环控制，但其自己的位置控制只允许在360°范围内进行旋转，多有不便。如想实现常用位置控制需在代码层进行实现。  
