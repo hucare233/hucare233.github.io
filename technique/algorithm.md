@@ -61,8 +61,7 @@ $$Pdlt=K_p*(e(t)-e(t-1))+K_i*e(t)+K_d*[e(t)-2*e(t-2)+e(t-2)];$$
 ## FOC
 
 前置文章学习： 
-[深入浅出讲解FOC算法与SVPWM技术](https://zhuanlan.zhihu.com/p/147659820
-)
+[深入浅出讲解FOC算法与SVPWM技术](https://zhuanlan.zhihu.com/p/147659820)  
 参考书籍：
 现代永磁同步电机控制原理及MATLAB仿真
 SVPWM的原理及法则推导和控制算法详解
@@ -166,6 +165,15 @@ T_f——滤波环节的时间常数
 
 ## 模糊控制
 
+推荐书籍：智能控制--刘金锟
+
+模糊控制是在模糊数学的基础上发展出来的，这个名字看着挺玄乎，其实很简单的。具体看书就行了。  
+关于应用方面，模糊PID可以，但是要用这个，其实我感觉这本书最开始提高的专家PID就够我们用了（所谓专家PID，其实也就是分情况考虑）。
+
 ## ANFIS
 
-(Adaptive Neuro-Fuzzy Inference System)ANFIS，自适应模糊神经网络，其实就是将神经网络的模型
+(Adaptive Neuro-Fuzzy Inference System)ANFIS，自适应模糊神经网络，其实就是将神经网络的模型与模糊控制结合，里面的结点变成了模糊量。  
+这个我学的时候没找有相关书籍，也是看论文，看帖子，挺杂的。
+这个咱们可以用在数据拟合方面。可以看一下这篇论文[Design of Sensor Data Fusion Algorithm for Mobile Robot Navigation Using ANFIS and Its Analysis Across the Membership Functions](https://scihubtw.tw/10.3103/S0146411618050036)。  
+同样的，里面的参数使用MATLAB算好之后直接输入的，所以程序实现也很简单。 我的是DT程序的anfic.c  
+关于MATLAB里面的操作，也只是读入数据调用一下anfis工具箱，可见[https://zhuanlan.zhihu.com/p/92089413](https://zhuanlan.zhihu.com/p/92089413), 训练完成后，直接用MATLAB打开fis文件看那几个系数就可以。
